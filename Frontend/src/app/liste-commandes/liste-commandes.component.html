@@ -1,0 +1,39 @@
+<div class="container py-5">
+    <div class="row text-center text-white mb-5">
+        <div class="col-lg-7 mx-auto">
+            <h1 class="display-4">Liste de mes livraisons</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 mx-auto ">
+            <ul class="list-group">
+                <tbody *ngFor="let item of commandes">
+                <li class="list-group-item shadow my-3">
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-1">
+                            <h5 class="mt-0 font-weight-bold mb-2">{{item.date_cmd}}</h5>
+                            <p class="font-italic text-muted mb-0 small">{{item.id}}</p>
+                            
+                            <div *ngFor="let it of item.ligneCmds">
+                                <p>Quantité: {{it.qte_cmd}}</p>
+                                <p>Nom de l'article: {{it.article.nom_art}}</p>
+                            </div>
+                            <p>montant total: {{MntTot}}</p>
+                            <td><button  class="btn btn-primary">Livrer</button></td>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <ul class="list-inline small">
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> 
+                </li> 
+              </tbody>
+            </ul> 
+        </div>
+    </div>
+  </div> 

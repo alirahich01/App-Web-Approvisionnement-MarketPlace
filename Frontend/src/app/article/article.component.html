@@ -1,0 +1,48 @@
+
+<div class="container py-5">
+    <div class="row text-center text-white mb-5">
+        <div class="col-lg-7 mx-auto">
+        
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 mx-auto ">
+             <td><button *ngIf="userRole=='Admin'" routerLink="/NouvArtc" class="btn btn-primary">Anouveau article</button></td> 
+            <td><button *ngIf="userRole=='Admin'" routerLink="/listecmd" class="btn btn-primary"> commandes</button></td> 
+            <ul class="list-group">
+        
+                <tbody *ngFor="let item of articles">
+                <li class="list-group-item shadow my-3">
+                    <div class="media align-items-lg-center flex-column flex-lg-row p-3">
+                        <div class="media-body order-2 order-lg-1">
+                            <h5 class="mt-0 font-weight-bold mb-2">{{item.nom_art}}</h5>
+                            <p class="font-italic text-muted mb-0 small">quantité au stock: {{item.qte_stock}}</p>
+                            <div class="d-flex align-items-center justify-content-between mt-1">
+                                <h6 class="font-weight-bold my-2">{{item.pu_art}} DH </h6>
+                                <td><button *ngIf="!item.isOnPanier" (click)="AjouterAuPanier(item.id)" class="btn btn-primary">Ajouter</button></td>
+                                <td><button *ngIf="item.isOnPanier" (click)="RetirerDuPanier(item.id)" class="btn btn-danger">retier du panier</button></td>
+                                <td>
+                                    <label for="lname">Choisir une quantité</label>
+                                    <input type="text" id="qtcmd" [(ngModel)]="qtcmd" name="qtcmd" placeholder="Votre quantité.."></td>
+                                    
+                               
+                                <ul class="list-inline small">
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                                    <li class="list-inline-item m-0"><i class="fa fa-star-o text-gray"></i></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> 
+  
+                
+                </li> 
+              </tbody>
+            </ul> 
+        </div>
+      
+    </div>
+  
+  </div> 
